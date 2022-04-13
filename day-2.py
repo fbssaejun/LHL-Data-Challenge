@@ -14,4 +14,4 @@ Required format: #DOT!
 name = '  Dot  '
 
 # Solution
-'#' + name.strip().upper() + '!' # => #DOT!
+print('#' + name.strip().upper() + '!') # => #DOT!
