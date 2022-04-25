@@ -13,6 +13,9 @@ df = pd.read_csv('aus_weather.csv')
 df = df[df["Location"] == "Melbourne"]
 
 # SOLUTION
-df.Temp9am.plot(kind="hist")
 
+# Creates a visualized bar chart for Temp9am column values
+df.Temp9am.plot(kind="hist") 
+
+# Creates a visualized box chart for Rainfall column values
 df.Rainfall.plot(kind='box')
