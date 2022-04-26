@@ -9,3 +9,18 @@ Challenge
 3. What percent of New Zealand’s traffic (using variable trafficCount) was classified as heavy (using variable classWeight) in 2020?
 
 '''
+
+# SOLUTION
+import pandas as pd
+df = pd.read_csv('nz_car_traffic.csv')
+
+# 1
+grouped = df.groupby(['regionName','classWeight'])[['trafficCount']].sum().unstack()
+print(grouped.iloc[:,0].idxmin()) # heavy
+print(grouped.iloc[:,1].idxmin()) # light
+
+# 2
+df.groupby("month").agg({"trafficCount":'sum'}).plot(kind='bar')
+
+# 3
+df[df.classWeight == 'Heavy'].trafficCount.sum() / df.trafficCount.sum()
